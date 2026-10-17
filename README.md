@@ -3,16 +3,14 @@
 Implementation and research summary of **WisdomNet**, a method that teaches a neural network to *reject* inputs it is likely to misclassify instead of forcing a wrong prediction.
 
 > **Paper:** T. X. Tran and R. S. Aygun, "WisdomNet: trustable machine learning toward error-free classification," *Neural Computing and Applications*, vol. 33, pp. 2719–2734, 2021. [doi:10.1007/s00521-020-05147-4](https://doi.org/10.1007/s00521-020-05147-4)
----
 
 ## Repository Contents
 
 | File | Description |
 |---|---|
-| `26K-7601_WisdomNet_Implementation.ipynb` | WisdomNet reproduced on the Breast Cancer Wisconsin dataset |
-| `26K-7601 WisdomNet Analysis Summary.pdf` | Summary of the paper's method, theory, results and limitations |
+| `WisdomNet_Implementation.ipynb` | WisdomNet reproduced on the Breast Cancer Wisconsin dataset |
+| `WisdomNet Analysis Summary.pdf` | Summary of the paper's method, theory, results and limitations |
 
----
 
 ## How WisdomNet Works
 
@@ -23,7 +21,6 @@ Implementation and research summary of **WisdomNet**, a method that teaches a ne
 
 At inference, *W* outputs either a class or a rejection.
 
----
 
 ## Implementation
 
@@ -34,8 +31,6 @@ At inference, *W* outputs either a class or a rejection.
 scikit-learn's binary `MLPClassifier` has a single output neuron, so it is mirrored into two equivalent class outputs (using `sigmoid(-z) = 1 - sigmoid(z)`) before the reject neuron is added. The notebook checks that *W* matches *N* before fine-tuning.
 
 Metrics follow the paper: **Error = (FP + FN) / N** and **Reject rate = R / N**, where *N* is the full test set.
-
----
 
 ## Results
 
@@ -57,7 +52,6 @@ The paper gives no stopping criterion for fine-tuning, so the notebook varies th
 
 10 epochs is the earliest point with zero error and the lowest reject rate. Training longer only rejects more samples.
 
----
 
 ## Key Takeaways
 
@@ -68,7 +62,6 @@ The paper gives no stopping criterion for fine-tuning, so the notebook varies th
 
 See the PDF for the full analysis.
 
----
 
 ## Citation
 
